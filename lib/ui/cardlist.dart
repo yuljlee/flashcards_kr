@@ -31,7 +31,7 @@ class CardList extends StatelessWidget {
         ),
         back: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF006666),
+            color: Color(0xFFF06666),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           child: Column(
@@ -57,7 +57,9 @@ class CardList extends StatelessWidget {
         itemCount: 10,
         viewportFraction: 0.8,
         scale: 0.8,
-        //pagination: SwiperPagination(),
+        control: SwiperControl(),
+        //autoplay: true,        
+        pagination: SwiperPagination(),
         itemBuilder: (BuildContext context, int index) {
           return Stack(
             fit: StackFit.expand,

@@ -1,6 +1,7 @@
 // Main page
 import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
+import 'package:flashcards_kr/model/theme.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -15,7 +16,12 @@ class _HomeState extends State<Home> {
   // set category iteem on grid view
   List<Widget> _createCategory(int numCards) {
     int i = 0;
-    List category = ['사과', '포도', '수박', '사과', '포도', '수박', '사과', '포도', '수박', '참외'];
+    List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '포도', '수박', '참외'];
+    //Theme theme = Theme(0, '매일', 'Everyday', 1);
+    
+    //List<Theme> theme;
+    //theme.add([1, '매일', 'Everyday', 1]);
+    
     List colors = [Colors.blueGrey, Colors.blueAccent, Colors.red, 
       Colors.amber, Colors.pink, Colors.black, Colors.brown, Colors.indigo, Colors.deepOrange, Colors.deepPurple];
     List<Widget> cards = List<Widget>();
@@ -32,7 +38,7 @@ class _HomeState extends State<Home> {
           child: Center(
           child: Text(
             i.toString() + ' ' + category[i],
-            style: TextStyle(color: Colors.white, fontSize: 40),
+            style: TextStyle(color: Colors.white, fontSize: 30),
           )
         ),
       )
