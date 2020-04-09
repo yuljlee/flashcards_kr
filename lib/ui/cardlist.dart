@@ -1,10 +1,15 @@
+import 'package:flashcards_kr/model/topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class CardList extends StatelessWidget {
+  final Topic topic;
 
-    _renderContent(context) {
+  CardList({Key key, this.topic}) : super(key: key);
+  
+  // show card
+  _renderContent(context) {
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 32.0, bottom: 32.0),
@@ -51,7 +56,7 @@ class CardList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card List'),
+        title: Text(topic.korName.toString()),
       ),
       body: Swiper(
         itemCount: 10,
