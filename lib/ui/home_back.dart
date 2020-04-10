@@ -52,12 +52,12 @@ class _HomeState extends State<Home> {
           child: InkWell(
               onTap: () {
                 print(i.toString() + " tapped");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CardList(topic: topics[0]),
-                  ),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => CardList(topic: topics[0]),
+                //   ),
+                // );
               },
               child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

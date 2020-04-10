@@ -37,21 +37,68 @@ class Home extends StatelessWidget {
     return cards;
   }
 
+  Widget _renderCard(context, int id) {
+    List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '탈것'];
+    List engCategory = ['Everyday', 'Tour', 'School', 'Pelople', 'Free Time', 'Work', 'Food', 'Vehicles'];
+
+    final makeCard = Card(
+      elevation: 3.0,
+      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+      child: GestureDetector(
+              //splashColor: Colors.blue.withAlpha(30),
+              onTap: () {
+                print('You clicked item number $id');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CardList(category: category[id]),
+                  ),
+                );
+              },
+              child: Container(
+                //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                decoration: BoxDecoration(color: Colors.teal),
+                child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,            
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(id.toString(), style: Theme.of(context).textTheme.subtitle)),
+                        Text(category[id], style: Theme.of(context).textTheme.display1),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Text(engCategory[id], style: Theme.of(context).textTheme.title)),
+                        ],
+                      ),
+              ),
+      ),
+    );
+
+    return makeCard;
+  }
+
   @override
   Widget build(BuildContext context) {
+    int _rowCnt = 0;
+    Orientation orientation = MediaQuery.of(context).orientation;
+    // display 2 rows on portrait
+    (orientation == Orientation.portrait) ? _rowCnt = 2 : _rowCnt = 3;
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('Flashcards')
         ),
-        body: GridView.count(
-              scrollDirection: Axis.vertical,
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              padding: EdgeInsets.all(10.0),
-              children: 
-                _createCategory(context, 8)
-            )
+        body: GridView.builder(
+          itemCount: 8,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
+            crossAxisCount: _rowCnt,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return _renderCard(context, index);
+          },
+        )
 
     );
   }
