@@ -2,12 +2,24 @@ import 'package:flashcards_kr/model/topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class CardList extends StatelessWidget {
   //final Topic topic;
   CardList({Key key, this.category}) : super(key: key);
 
   final String category;
+  
+  final FlutterTts flutterTts = FlutterTts();
+
+  Future _speak(String text) async {
+    //print(await flutterTts.getLanguages);
+    await flutterTts.setLanguage('ko-KR');
+    //await flutterTts.setLanguage('en-US');
+    await flutterTts.setPitch(1);
+    print(await flutterTts.getVoices);
+    await flutterTts.speak(text);
+  }
   
   List<String> korWord = [
     "아침",
@@ -41,46 +53,51 @@ class CardList extends StatelessWidget {
         },
         front: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF006666),
+            //color: Color(0xFF006666),
+            border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
-          
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              
-              Row(
-                children: <Widget>[
-                  Text(korWord[id], style: Theme.of(context).textTheme.display3),
-              
-                  // Text('Click here to flip back',
-                  //   style: Theme.of(context).textTheme.body1),
-                ],
+              Spacer(),
+              Container(
+                color: Colors.white,
+                child: Text(korWord[id], style: Theme.of(context).textTheme.display3),              
               ),
-              
-              Row(
-                children: <Widget>[
-                  Text(korWord[id], style: Theme.of(context).textTheme.display3),
-              
-                  // Text('Click here to flip back',
-                  //   style: Theme.of(context).textTheme.body1),
-                ],
-              ),
-              
-              Align(
-                alignment: Alignment.bottomRight,
-                              child: Row(
-                  children: <Widget>[
-                    Text(korWord[id], style: Theme.of(context).textTheme.display3),
-                
-                    // Text('Click here to flip back',
-                    //   style: Theme.of(context).textTheme.body1),
-                  ],
+              Container(
+                color: Colors.orange,
+                child: Text('Click here to flip back', style: Theme.of(context).textTheme.body1),
+              ),                            
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Ink(
+                    decoration: const ShapeDecoration(
+                      color: Colors.lightBlue,
+                      shape: CircleBorder(),
+                    ),
+                    child: IconButton(
+                              icon: Icon(Icons.volume_up),
+                              iconSize: 40,
+                              tooltip: 'Listen!',
+                              splashColor: Colors.purple,
+                              onPressed: () {
+                                print('IconButton is pressed');
+                                _speak(korWord[id]);
+                              }
+                            ),
+                  )
                 ),
-              )
-              
+              ),
                 
+
               
+
+              
+                  
             ],
           ),
         ),
@@ -88,20 +105,21 @@ class CardList extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color(0xFFF06666),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            border: Border.all(),
           ),
-          child: Container(
-            child: 
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(engWord[id], style: Theme.of(context).textTheme.display3)),),
-          // child: Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: <Widget>[
-          //     Text(engWord[id], style: Theme.of(context).textTheme.display3),
-          //     Text('Click here to flip front',
-          //         style: Theme.of(context).textTheme.body1),
-          //   ],
-          // ),
+          // child: Container(
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: Text(engWord[id], style: Theme.of(context).textTheme.display3)),
+          //   ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(engWord[id], style: Theme.of(context).textTheme.display3),
+              Text('Click here to flip front',
+                  style: Theme.of(context).textTheme.body1),
+            ],
+          ),
         ),
       ),
     );
@@ -122,7 +140,7 @@ class CardList extends StatelessWidget {
         pagination: SwiperPagination(),
         itemBuilder: (BuildContext context, int index) {
           return Stack(
-            fit: StackFit.expand,
+            fit: StackFit.expand,            
             children: <Widget>[
               //_renderBg(),
               Column(
