@@ -57,7 +57,7 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                decoration: BoxDecoration(color: Colors.teal),
+                decoration: BoxDecoration(color: Colors.white),
                 child: Column(
                       //mainAxisAlignment: MainAxisAlignment.center,            
                       children: <Widget>[
@@ -85,20 +85,42 @@ class Home extends StatelessWidget {
     (orientation == Orientation.portrait) ? _rowCnt = 2 : _rowCnt = 3;
     
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flashcards')
+      appBar: 
+        AppBar(
+          title: Text('Flashcards'),
+          elevation: 0.0,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.settings),
+              tooltip: 'Show Snackbar',
+              onPressed: () {
+                print('settings button pressed.');
+                //scaffoldKey.currentState.showSnackBar(snackBar);
+              },
+            ),
+          ],
         ),
-        body: GridView.builder(
-          itemCount: 8,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
-            crossAxisCount: _rowCnt,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return _renderCard(context, index);
-          },
-        )
+      
+      backgroundColor: Colors.yellow[500],
+      body: 
+              
+
+                Container(
+                //padding: EdgeInsets.only(top: 0.0),
+                color: Colors.blue,
+                child: GridView.builder(                  
+                  itemCount: 8,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
+                    crossAxisCount: _rowCnt,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return _renderCard(context, index);
+                  },
+                ),
+        ),
+      
 
     );
   }

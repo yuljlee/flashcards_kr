@@ -60,7 +60,7 @@ class CardList extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Spacer(),
+              Spacer(flex: 1,),
               Container(
                 color: Colors.white,
                 child: Text(korWord[id], style: Theme.of(context).textTheme.display3),              
@@ -69,7 +69,7 @@ class CardList extends StatelessWidget {
                 color: Colors.orange,
                 child: Text('Click here to flip back', style: Theme.of(context).textTheme.body1),
               ),                            
-              Spacer(),
+              Spacer(flex: 1,),
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Align(

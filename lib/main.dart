@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Korean Flashcards',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primaryColor: Colors.yellow[500],
+        accentColor: Colors.amber,
+        accentColorBrightness: Brightness.dark
       ),
       home: Home(),
     );
