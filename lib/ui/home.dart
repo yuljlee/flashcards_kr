@@ -39,11 +39,12 @@ class Home extends StatelessWidget {
 
   Widget _renderCard(context, int id) {
     List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '탈것'];
-    List engCategory = ['Everyday', 'Tour', 'School', 'Pelople', 'Free Time', 'Work', 'Food', 'Vehicles'];
+    List engCategory = ['Everyday', 'Tour', 'School', 'People', 'Free Time', 'Work', 'Food', 'Vehicles'];
 
     final makeCard = Card(
       elevation: 3.0,
-      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+      margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      //margin: EdgeInsets.all(20),
       child: GestureDetector(
               //splashColor: Colors.blue.withAlpha(30),
               onTap: () {
@@ -57,17 +58,28 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                decoration: BoxDecoration(color: Colors.white),
+                decoration: BoxDecoration(color: Colors.white30),
                 child: Column(
                       //mainAxisAlignment: MainAxisAlignment.center,            
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Text(id.toString(), style: Theme.of(context).textTheme.subtitle)),
-                        Text(category[id], style: Theme.of(context).textTheme.display1),
-                        Align(
+                        Spacer(),
+                        // Align(
+                        //   alignment: Alignment.bottomLeft,
+                        //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
+                        // ),                        
+                        Text(category[id], style: Theme.of(context).textTheme.title),
+                        //Divider(),
+                        Container(
+                          padding: EdgeInsets.only(right: 10.0),
                           alignment: Alignment.bottomRight,
-                          child: Text(engCategory[id], style: Theme.of(context).textTheme.title)),
+                          child: Text(engCategory[id], style: Theme.of(context).textTheme.subtitle),
+                        ),
+                        Spacer(),
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          height: 10.0,
+                          color: const Color(0xFF0336FF),
+                        )
                         ],
                       ),
               ),
@@ -87,7 +99,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: 
         AppBar(
-          title: Text('Flashcards'),
+          leading: FlutterLogo(),
+          title: Text('Choose Topics', style: Theme.of(context).textTheme.body1,),
           elevation: 0.0,
           actions: <Widget>[
             IconButton(
@@ -101,19 +114,19 @@ class Home extends StatelessWidget {
           ],
         ),
       
-      backgroundColor: Colors.yellow[500],
+      backgroundColor: const Color(0xFFFFDE03),
+      
       body: 
               
-
                 Container(
-                //padding: EdgeInsets.only(top: 0.0),
-                color: Colors.blue,
-                child: GridView.builder(                  
+                padding: EdgeInsets.only(top: 20.0),
+                //color: Colors.blue[700],
+                child: GridView.builder(  
                   itemCount: 8,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
                     crossAxisCount: _rowCnt,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 0,
+                    mainAxisSpacing: 0,
                   ),
                   itemBuilder: (BuildContext context, int index) {
                     return _renderCard(context, index);
@@ -125,3 +138,22 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+Widget firstRow() {
+      return Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: 8.0),
+            child: Icon(Icons.favorite,
+              color: Colors.green,
+            ),
+          ),
+          Text(
+            'BEAMS',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      );
+    }
