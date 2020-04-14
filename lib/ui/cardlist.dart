@@ -44,7 +44,7 @@ class CardList extends StatelessWidget {
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 32.0, bottom: 32.0),
-      color: Color(0x00000000),
+      color: Color(0x00000000),      
       child: FlipCard(
         direction: FlipDirection.HORIZONTAL,
         speed: 400,
@@ -54,6 +54,7 @@ class CardList extends StatelessWidget {
         front: Container(
           decoration: BoxDecoration(
             //color: Color(0xFF006666),
+            color: Colors.white,
             border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
@@ -92,11 +93,6 @@ class CardList extends StatelessWidget {
                   )
                 ),
               ),
-                
-
-              
-
-              
                   
             ],
           ),
@@ -130,38 +126,42 @@ class CardList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(category.toString()),
+        elevation: 0.0,
       ),
-      body: Swiper(
-        itemCount: 6,
-        viewportFraction: 0.8,
-        scale: 0.8,
-        control: SwiperControl(),
-        //autoplay: true,        
-        pagination: SwiperPagination(),
-        itemBuilder: (BuildContext context, int index) {
-          return Stack(
-            fit: StackFit.expand,            
-            children: <Widget>[
-              //_renderBg(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  //_renderAppBar(context),
-                  Expanded(
-                    flex: 22,
-                    child: _renderContent(context, index),
-                  ),
-                  Expanded(
-                    flex: 0,
-                    child: Container(
-                      //color: Colors.orange,
+      body:  Container(
+        color: Theme.of(context).primaryColor,
+              child: Swiper(
+          itemCount: 6,
+          viewportFraction: 0.8,
+          scale: 0.8,
+          control: SwiperControl(),
+          //autoplay: true,        
+          pagination: SwiperPagination(),
+          itemBuilder: (BuildContext context, int index) {
+            return Stack(
+              fit: StackFit.expand,            
+              children: <Widget>[
+                //_renderBg(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    //_renderAppBar(context),
+                    Expanded(
+                      flex: 22,                    
+                      child: _renderContent(context, index),
                     ),
-                  ),
-                ],
-              )
-            ],
-          );
-        },),
+                    Expanded(
+                      flex: 0,
+                      child: Container(
+                        //color: Colors.orange,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            );
+          },),
+      ),
       // body: Stack(
       //   fit: StackFit.expand,
       //   children: <Widget>[
