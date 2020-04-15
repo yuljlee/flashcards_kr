@@ -78,7 +78,7 @@ class Home extends StatelessWidget {
                         Container(
                           alignment: Alignment.bottomCenter,
                           height: 10.0,
-                          color: const Color(0xFF0336FF),
+                          color: Theme.of(context).accentColor,
                         )
                         ],
                       ),
@@ -114,7 +114,8 @@ class Home extends StatelessWidget {
           ],
         ),
       
-      backgroundColor: const Color(0xFFFFDE03),
+      //backgroundColor: const Color(0xFFFFDE03),
+      backgroundColor: Theme.of(context).primaryColor,
       
       body: 
               

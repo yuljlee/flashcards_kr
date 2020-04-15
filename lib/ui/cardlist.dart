@@ -54,7 +54,7 @@ class CardList extends StatelessWidget {
         front: Container(
           decoration: BoxDecoration(
             //color: Color(0xFF006666),
-            color: Colors.white,
+            color: Theme.of(context).accentColor,
             border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
@@ -69,7 +69,7 @@ class CardList extends StatelessWidget {
               Container(
                 color: Colors.orange,
                 child: Text('Click here to flip back', style: Theme.of(context).textTheme.body1),
-              ),                            
+              ),
               Spacer(flex: 1,),
               Padding(
                 padding: EdgeInsets.all(10.0),
