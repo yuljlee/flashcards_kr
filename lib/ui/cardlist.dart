@@ -14,6 +14,7 @@ class CardList extends StatelessWidget {
 
   Future _speak(String text) async {
     //print(await flutterTts.getLanguages);
+
     await flutterTts.setLanguage('ko-KR');
     //await flutterTts.setLanguage('en-US');
     await flutterTts.setPitch(1);
@@ -27,7 +28,8 @@ class CardList extends StatelessWidget {
     "치약",
     "비누",
     "거울",
-    '신발'
+    '신발',
+    '아침밥'
   ];
 
   List<String> engWord = [
@@ -36,7 +38,8 @@ class CardList extends StatelessWidget {
     "toothpaste",
     "soap",
     "mirror",
-    'shoes'
+    'shoes',
+    'breakfast',
   ];
 
   // show card
