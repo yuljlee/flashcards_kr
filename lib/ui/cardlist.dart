@@ -30,7 +30,8 @@ class CardList extends StatelessWidget {
     "거울",
     '신발',
     '아침밥',
-    '식탁',   
+    '식탁',
+    '사과',
   ];
 
   List<String> engWord = [
@@ -42,6 +43,7 @@ class CardList extends StatelessWidget {
     'shoes',
     'breakfast',
     'table',
+    'apple',
   ];
 
   // show card
