@@ -55,7 +55,7 @@ class CardList extends StatelessWidget {
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 32.0, bottom: 32.0),
-      color: Color(0x00000000),      
+      color: Color(0x00000000),
       child: FlipCard(
         direction: FlipDirection.HORIZONTAL,
         speed: 400,
@@ -65,7 +65,7 @@ class CardList extends StatelessWidget {
         front: Container(
           decoration: BoxDecoration(
             //color: Color(0xFF006666),
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).primaryColorLight,
             border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
