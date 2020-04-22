@@ -34,6 +34,7 @@ class CardList extends StatelessWidget {
     '사과',
     '뉴스',
     '전철',
+    '자전거',    
   ];
 
   List<String> engWord = [
@@ -47,7 +48,8 @@ class CardList extends StatelessWidget {
     'table',
     'apple',
     'news',
-    'subway',    
+    'subway',
+    'bicycle',    
   ];
 
   // show card
@@ -72,6 +74,7 @@ class CardList extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
               Spacer(flex: 1,),
               Container(
                 color: Colors.white,
