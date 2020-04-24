@@ -34,7 +34,10 @@ class CardList extends StatelessWidget {
     '사과',
     '뉴스',
     '전철',
-    '자전거',    
+    '자전거',
+    '자동차',
+    '건물',
+    '하늘',
   ];
 
   List<String> engWord = [
@@ -49,7 +52,10 @@ class CardList extends StatelessWidget {
     'apple',
     'news',
     'subway',
-    'bicycle',    
+    'bicycle',
+    'car',
+    'building',
+    'sky',
   ];
 
   // show card
