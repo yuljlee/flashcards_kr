@@ -38,6 +38,7 @@ class CardList extends StatelessWidget {
     '자동차',
     '건물',
     '하늘',
+    '구름',
   ];
 
   List<String> engWord = [
@@ -56,6 +57,7 @@ class CardList extends StatelessWidget {
     'car',
     'building',
     'sky',
+    'cloud',
   ];
 
   // show card
