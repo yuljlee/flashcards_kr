@@ -1,6 +1,6 @@
 // Main page
 import 'package:flashcards_kr/model/topic.dart';
-import 'package:flashcards_kr/ui/cardlist.dart';
+//import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
 //import 'package:flashcards_kr/model/theme.dart';
 
@@ -62,9 +62,9 @@ class _HomeState extends State<Home> {
               child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(topics[i].id.toString(), style: Theme.of(context).textTheme.subtitle),
-                Text(topics[i].korName.toString(), style: Theme.of(context).textTheme.display1),
-                Text(topics[i].engName.toString(), style: Theme.of(context).textTheme.title),
+                Text(topics[i].id.toString(), style: Theme.of(context).textTheme.subtitle2),
+                Text(topics[i].korName.toString(), style: Theme.of(context).textTheme.headline4),
+                Text(topics[i].engName.toString(), style: Theme.of(context).textTheme.headline6),
               ],
             ),
           ),

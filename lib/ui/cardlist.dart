@@ -1,4 +1,4 @@
-import 'package:flashcards_kr/model/topic.dart';
+//import 'package:flashcards_kr/model/topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -103,11 +103,11 @@ class CardList extends StatelessWidget {
               Spacer(flex: 1,),
               Container(
                 color: Colors.white,
-                child: Text(korWord[id], style: Theme.of(context).textTheme.display3),              
+                child: Text(korWord[id], style: Theme.of(context).textTheme.headline2),              
               ),
               Container(
                 color: Colors.orange,
-                child: Text('Click here to flip back', style: Theme.of(context).textTheme.body1),
+                child: Text('Click here to flip back', style: Theme.of(context).textTheme.bodyText2),
               ),
               Spacer(flex: 1,),
               Padding(
@@ -150,9 +150,9 @@ class CardList extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(engWord[id], style: Theme.of(context).textTheme.display3),
+              Text(engWord[id], style: Theme.of(context).textTheme.headline2),
               Text('Click here to flip front',
-                  style: Theme.of(context).textTheme.body1),
+                  style: Theme.of(context).textTheme.bodyText2),
             ],
           ),
         ),

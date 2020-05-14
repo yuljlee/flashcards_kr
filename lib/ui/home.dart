@@ -1,5 +1,5 @@
 // Main page
-import 'package:flashcards_kr/model/topic.dart';
+//import 'package:flashcards_kr/model/topic.dart';
 import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +23,9 @@ class Home extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,            
               children: <Widget>[
-                Text(i.toString(), style: Theme.of(context).textTheme.subtitle),
-                Text(category[i], style: Theme.of(context).textTheme.display1),
-                Text(category[i], style: Theme.of(context).textTheme.title),
+                Text(i.toString(), style: Theme.of(context).textTheme.subtitle2),
+                Text(category[i], style: Theme.of(context).textTheme.headline4),
+                Text(category[i], style: Theme.of(context).textTheme.headline6),
                 ],
               ),
           ),
@@ -67,12 +67,12 @@ class Home extends StatelessWidget {
                         //   alignment: Alignment.bottomLeft,
                         //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
                         // ),                        
-                        Text(category[id], style: Theme.of(context).textTheme.title),
+                        Text(category[id], style: Theme.of(context).textTheme.headline6),
                         //Divider(),
                         Container(
                           padding: EdgeInsets.only(right: 10.0),
                           alignment: Alignment.bottomRight,
-                          child: Text(engCategory[id], style: Theme.of(context).textTheme.subtitle),
+                          child: Text(engCategory[id], style: Theme.of(context).textTheme.subtitle2),
                         ),
                         Spacer(),
                         Container(
@@ -100,7 +100,7 @@ class Home extends StatelessWidget {
       appBar: 
         AppBar(
           leading: FlutterLogo(),
-          title: Text('Choose Topics', style: Theme.of(context).textTheme.body1,),
+          title: Text('Choose Topics', style: Theme.of(context).textTheme.bodyText2,),
           elevation: 0.0,
           actions: <Widget>[
             IconButton(

@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Rubik',
 
         textTheme: TextTheme(
-          headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          title: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
-          subtitle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
-          body1: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
-          body2: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),          
+          headline5: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
+          subtitle2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
+          bodyText2: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
+          bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),          
         ),
       ),
       home: Home(),
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
