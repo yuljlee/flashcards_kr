@@ -48,6 +48,7 @@ class CardList extends StatelessWidget {
     '여름',
     '봄',
     '가을',
+    '겨울',
   ];
 
   List<String> engWord = [
@@ -72,10 +73,11 @@ class CardList extends StatelessWidget {
     'sea',
     'mountain',
     'road',
-    'wood',
+    'wood', 
     'Summer',
     'Spring',
-    'Fall',    
+    'Fall',
+    'Winter',
   ];
 
   // show card
