@@ -49,6 +49,7 @@ class CardList extends StatelessWidget {
     '봄',
     '가을',
     '겨울',
+    '왕',
   ];
 
   List<String> engWord = [
@@ -78,6 +79,7 @@ class CardList extends StatelessWidget {
     'Spring',
     'Fall',
     'Winter',
+    'king',
   ];
 
   // show card
