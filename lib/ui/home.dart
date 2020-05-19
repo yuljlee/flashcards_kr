@@ -60,13 +60,13 @@ class Home extends StatelessWidget {
                 //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
                 decoration: BoxDecoration(color: Colors.white30),
                 child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.center,            
+                      //mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Spacer(),
                         // Align(
                         //   alignment: Alignment.bottomLeft,
                         //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
-                        // ),                        
+                        // ),
                         Text(category[id], style: Theme.of(context).textTheme.headline6),
                         //Divider(),
                         Container(

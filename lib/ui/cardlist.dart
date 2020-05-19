@@ -96,9 +96,10 @@ class CardList extends StatelessWidget {
         },
         front: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF006666),
+            color: Colors.white,
+            //color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
-            border: Border.all(),
+            //border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           child: Column(
@@ -107,11 +108,11 @@ class CardList extends StatelessWidget {
               Spacer(flex: 1,),
               Container(
                 color: Colors.white,
-                child: Text(korWord[id], style: Theme.of(context).textTheme.headline2),              
+                child: Text(korWord[id], style: Theme.of(context).textTheme.headline1),              
               ),
               Container(
-                color: Colors.orange,
-                child: Text('Click here to flip back', style: Theme.of(context).textTheme.bodyText2),
+                //color: Colors.orange,
+                child: Text('뒷면을 보려면 클릭하세요', style: Theme.of(context).textTheme.subtitle1),
               ),
               Spacer(flex: 1,),
               Padding(
@@ -142,9 +143,9 @@ class CardList extends StatelessWidget {
         ),
         back: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFF06666),
+            color: Color(0xFFF06666),            
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            border: Border.all(),
+            //border: Border.all(),
           ),
           // child: Container(
           //   child: Align(
@@ -156,7 +157,7 @@ class CardList extends StatelessWidget {
             children: <Widget>[
               Text(engWord[id], style: Theme.of(context).textTheme.headline2),
               Text('Click here to flip front',
-                  style: Theme.of(context).textTheme.bodyText2),
+                  style: Theme.of(context).textTheme.subtitle1),
             ],
           ),
         ),
@@ -173,6 +174,7 @@ class CardList extends StatelessWidget {
       ),
       body:  Container(
         color: Theme.of(context).primaryColor,
+        //color: Colors.white30,
               child: Swiper(
           itemCount: 6,
           viewportFraction: 0.8,
