@@ -96,8 +96,8 @@ class CardList extends StatelessWidget {
         },
         front: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
-            //color: Color(0xFF006666),
+            //color: Colors.white,
+            color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
             //border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
