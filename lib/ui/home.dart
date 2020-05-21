@@ -38,8 +38,8 @@ class Home extends StatelessWidget {
   }
 
   Widget _renderCard(context, int id) {
-    List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '탈것'];
-    List engCategory = ['Everyday', 'Tour', 'School', 'People', 'Free Time', 'Work', 'Food', 'Vehicles'];
+    List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];
+    List engCategory = ['Time', 'Numbers', 'Human Body', 'Family', 'Animals', 'Plants'];
 
     final makeCard = Card(
       elevation: 3.0,
@@ -123,7 +123,7 @@ class Home extends StatelessWidget {
                 padding: EdgeInsets.only(top: 20.0),
                 //color: Colors.blue[700],
                 child: GridView.builder(  
-                  itemCount: 8,
+                  itemCount: 6,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
                     crossAxisCount: _rowCnt,
                     crossAxisSpacing: 0,
