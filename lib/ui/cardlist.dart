@@ -92,7 +92,9 @@ class CardList extends StatelessWidget {
               Spacer(flex: 1,),
               Container(
                 //color: Colors.white,
-                child: Text(korWord[id], style: Theme.of(context).textTheme.headline1),              
+                child: FittedBox(
+                  child: Text(korWord[id], style: Theme.of(context).textTheme.headline1)
+                ),          
               ),
               Container(
                 //color: Colors.orange,
@@ -126,14 +128,16 @@ class CardList extends StatelessWidget {
         ),
         back: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFF06666),            
+            color: Color(0xFFF06666),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             //border: Border.all(),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(engWord[id], style: Theme.of(context).textTheme.headline2),
+              FittedBox(
+                child: Text(engWord[id], style: Theme.of(context).textTheme.headline2)
+              ),
               Text('Click here to flip front',
                   style: Theme.of(context).textTheme.subtitle1),
             ],
