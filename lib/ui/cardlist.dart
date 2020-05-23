@@ -80,8 +80,8 @@ class CardList extends StatelessWidget {
         },
         front: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
-            //color: Color(0xFF006666),
+            //color: Colors.white,
+            color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
             //border: Border.all(),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -138,6 +138,7 @@ class CardList extends StatelessWidget {
               FittedBox(
                 child: Text(engWord[id], style: Theme.of(context).textTheme.headline2)
               ),
+
               Text('Click here to flip front',
                   style: Theme.of(context).textTheme.subtitle1),
             ],
