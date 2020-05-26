@@ -5,37 +5,37 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   
-  List<Widget> _createCategory(context, int numCards) {
-    int i= 0;
-    List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '포도', '수박', '참외'];
-    List colors = [Colors.blueGrey, Colors.blueAccent, Colors.red, 
-      Colors.amber, Colors.pink, Colors.cyan, Colors.brown, Colors.indigo, Colors.deepOrange, Colors.deepPurple];
-    List<Widget> cards = List<Widget>();
-    int _id = 0;
-    while (i < numCards) {
-      Card card = Card(
-          color: Colors.amberAccent,
-          child: InkWell(
-            splashColor: Colors.blue.withAlpha(30),
-            onTap: () {
-              print('You clicked item number $_id');
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,            
-              children: <Widget>[
-                Text(i.toString(), style: Theme.of(context).textTheme.subtitle2),
-                Text(category[i], style: Theme.of(context).textTheme.headline4),
-                Text(category[i], style: Theme.of(context).textTheme.headline6),
-                ],
-              ),
-          ),
-        );
-      i++;
-      cards.add(card);
-    }
+  // List<Widget> _createCategory(context, int numCards) {
+  //   int i= 0;
+  //   List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '포도', '수박', '참외'];
+  //   List colors = [Colors.blueGrey, Colors.blueAccent, Colors.red, 
+  //     Colors.amber, Colors.pink, Colors.cyan, Colors.brown, Colors.indigo, Colors.deepOrange, Colors.deepPurple];
+  //   List<Widget> cards = List<Widget>();
+  //   int _id = 0;
+  //   while (i < numCards) {
+  //     Card card = Card(
+  //         color: Colors.amberAccent,
+  //         child: InkWell(
+  //           splashColor: Colors.blue.withAlpha(30),
+  //           onTap: () {
+  //             print('You clicked item number $_id');
+  //           },
+  //           child: Column(
+  //             mainAxisAlignment: MainAxisAlignment.center,            
+  //             children: <Widget>[
+  //               Text(i.toString(), style: Theme.of(context).textTheme.subtitle2),
+  //               Text(category[i], style: Theme.of(context).textTheme.headline4),
+  //               Text(category[i], style: Theme.of(context).textTheme.headline6),
+  //               ],
+  //             ),
+  //         ),
+  //       );
+  //     i++;
+  //     cards.add(card);
+  //   }
 
-    return cards;
-  }
+  //   return cards;
+  // }
 
   Widget _renderCard(context, int id) {
     List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];
