@@ -17,7 +17,7 @@ class CardList extends StatelessWidget {
 
     await flutterTts.setLanguage('ko-KR');
     //await flutterTts.setLanguage('en-US');
-    await flutterTts.setPitch(1);
+    await flutterTts.setPitch(2);
     print(await flutterTts.getVoices);
     await flutterTts.speak(text);
   }
@@ -138,7 +138,6 @@ class CardList extends StatelessWidget {
               FittedBox(
                 child: Text(engWord[id], style: Theme.of(context).textTheme.headline2)
               ),
-
               Text('Click here to flip front',
                   style: Theme.of(context).textTheme.subtitle1),
             ],
