@@ -22,7 +22,7 @@ class CardList extends StatelessWidget {
     await flutterTts.speak(text);
   }
   
-  List<String> korWord = [
+  final List<String> korWord = [
     "일월",
     "이월",
     "삼월",
@@ -44,7 +44,7 @@ class CardList extends StatelessWidget {
     '일요일',
   ];
 
-  List<String> engWord = [
+  final List<String> engWord = [
     "January",
     "February",
     "March",
