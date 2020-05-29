@@ -166,7 +166,7 @@ class CardList extends StatelessWidget {
           //pagination: SwiperPagination(),
           itemBuilder: (BuildContext context, int index) {
             return Stack(
-              fit: StackFit.expand,            
+              fit: StackFit.expand,
               children: <Widget>[
                 //_renderBg(),
                 Column(
@@ -174,7 +174,7 @@ class CardList extends StatelessWidget {
                   children: <Widget>[
                     //_renderAppBar(context),
                     Expanded(
-                      flex: 22,                    
+                      flex: 22,                
                       child: _renderContent(context, index),
                     ),
                     Expanded(

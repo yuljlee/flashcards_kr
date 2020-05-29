@@ -117,25 +117,22 @@ class Home extends StatelessWidget {
       //backgroundColor: const Color(0xFFFFDE03),
       backgroundColor: Theme.of(context).primaryColor,
       
-      body: 
-              
-                Container(
-                padding: EdgeInsets.only(top: 20.0),
-                //color: Colors.blue[700],
-                child: GridView.builder(  
-                  itemCount: 6,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
-                    crossAxisCount: _rowCnt,
-                    crossAxisSpacing: 0,
-                    mainAxisSpacing: 0,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return _renderCard(context, index);
-                  },
-                ),
+      body:
+        Container(
+          padding: EdgeInsets.only(top: 20.0),
+          //color: Colors.blue[700],
+          child: GridView.builder(  
+            itemCount: 6,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
+              crossAxisCount: _rowCnt,
+              crossAxisSpacing: 0,
+              mainAxisSpacing: 0,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return _renderCard(context, index);
+            },
+          ),
         ),
-      
-
     );
   }
 }
