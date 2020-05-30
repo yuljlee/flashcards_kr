@@ -162,7 +162,7 @@ class CardList extends StatelessWidget {
           viewportFraction: 0.8,
           scale: 0.8,
           control: SwiperControl(),
-          //autoplay: true,        
+          autoplay: true,
           //pagination: SwiperPagination(),
           itemBuilder: (BuildContext context, int index) {
             return Stack(

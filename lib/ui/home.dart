@@ -121,9 +121,9 @@ class Home extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(top: 20.0),
           //color: Colors.blue[700],
-          child: GridView.builder(  
+          child: GridView.builder(
             itemCount: 6,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(            
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( 
               crossAxisCount: _rowCnt,
               crossAxisSpacing: 0,
               mainAxisSpacing: 0,
