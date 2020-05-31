@@ -9,7 +9,6 @@ class CardList extends StatelessWidget {
   CardList({Key key, this.category}) : super(key: key);
 
   final String category;
-  
   final FlutterTts flutterTts = FlutterTts();
 
   Future _speak(String text) async {
@@ -22,7 +21,7 @@ class CardList extends StatelessWidget {
     await flutterTts.speak(text);
   }
   
-  final List<String> korWord = [
+  final List<String> korTime = [
     "일월",
     "이월",
     "삼월",
@@ -44,7 +43,7 @@ class CardList extends StatelessWidget {
     '일요일',
   ];
 
-  final List<String> engWord = [
+  final List<String> engTime = [
     "January",
     "February",
     "March",
@@ -64,6 +63,33 @@ class CardList extends StatelessWidget {
     'Friday',
     'Saturday',
     'Sunday',
+  ];
+
+  
+  final List<String> korNumber = [
+    '하나',
+    '둘',
+    '셋',
+    '넷',
+    "다섯",
+    '여섯',
+    '일곱',
+    '여덟',
+    '아홉',
+    '열',
+  ];
+
+  final List<String> engNumber = [
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten',
   ];
 
   // show card
@@ -93,7 +119,7 @@ class CardList extends StatelessWidget {
               Container(
                 //color: Colors.white,
                 child: FittedBox(
-                  child: Text(korWord[id], style: Theme.of(context).textTheme.headline1)
+                  child: Text(korTime[id], style: Theme.of(context).textTheme.headline1)
                 ),          
               ),
               Container(
@@ -117,9 +143,9 @@ class CardList extends StatelessWidget {
                               splashColor: Colors.purple,
                               onPressed: () {
                                 print('IconButton is pressed');
-                                _speak(korWord[id]);
+                                _speak(korTime[id]);
                               }
-                            ),
+                           ),
                   )
                 ),
               ),
@@ -136,7 +162,7 @@ class CardList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               FittedBox(
-                child: Text(engWord[id], style: Theme.of(context).textTheme.headline2)
+                child: Text(engTime[id], style: Theme.of(context).textTheme.headline2)
               ),
               Text('Click here to flip front',
                   style: Theme.of(context).textTheme.subtitle1),
@@ -154,10 +180,10 @@ class CardList extends StatelessWidget {
         title: Text(category.toString()),
         elevation: 0.0,
       ),
-      body:  Container(
+      body: Container(
         color: Theme.of(context).primaryColor,
         //color: Colors.white30,
-              child: Swiper(
+        child: Swiper(
           itemCount: 19,
           viewportFraction: 0.8,
           scale: 0.8,
@@ -187,7 +213,8 @@ class CardList extends StatelessWidget {
                 )
               ],
             );
-          },),
+          },
+        ),
       ),
       // body: Stack(
       //   fit: StackFit.expand,
