@@ -65,7 +65,6 @@ class CardList extends StatelessWidget {
     'Sunday',
   ];
 
-  
   final List<String> korNumber = [
     '하나',
     '둘',
@@ -91,6 +90,33 @@ class CardList extends StatelessWidget {
     'nine',
     'ten',
   ];
+
+  final List<String> korBody = [
+    '머리',
+    '눈',
+    '코',
+    '귀',
+    "입술",
+    '눈쌉',
+    '목',
+    '가슴',
+    '팔',
+    '다리',
+  ];
+
+  final List<String> engBody = [
+    'head',
+    'eye',
+    'nose',
+    'ear',
+    'lip',
+    'eyebrow',
+    'neck',
+    'chest',
+    'arm',
+    'leg',
+  ];
+
 
   // show card
   _renderContent(context, int id) {
@@ -120,7 +146,7 @@ class CardList extends StatelessWidget {
                 //color: Colors.white,
                 child: FittedBox(
                   child: Text(korTime[id], style: Theme.of(context).textTheme.headline1)
-                ),          
+                ),
               ),
               Container(
                 //color: Colors.orange,
