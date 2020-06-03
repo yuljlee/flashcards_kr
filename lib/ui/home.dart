@@ -1,5 +1,5 @@
 // Main page
-//import 'package:flashcards_kr/model/topic.dart';
+import 'package:flashcards_kr/model/topic.dart';
 import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +36,13 @@ class Home extends StatelessWidget {
 
   //   return cards;
   // }
+
+  Topic time = new Topic(1, '시간', 'Time', 1);
+  Topic number = new Topic(2, '숫자', 'Numbers', 2);
+  Topic body = new Topic(3, '몸', 'Human Body', 3);
+  Topic family = new Topic(4, '가족', 'Family', 4);
+  Topic animal = new Topic(5, '동물', 'Animals', 5);
+  Topic pland = new Topic(6, '식물', 'Plants', 6);
 
   Widget _renderCard(context, int id) {
     List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];

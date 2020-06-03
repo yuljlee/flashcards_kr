@@ -102,6 +102,7 @@ class CardList extends StatelessWidget {
     '가슴',
     '팔',
     '다리',
+    '발',
   ];
 
   final List<String> engBody = [
@@ -115,8 +116,8 @@ class CardList extends StatelessWidget {
     'chest',
     'arm',
     'leg',
+    'foot',
   ];
-
 
   // show card
   _renderContent(context, int id) {
