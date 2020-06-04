@@ -1,4 +1,4 @@
-//import 'package:flashcards_kr/model/topic.dart';
+import 'package:flashcards_kr/model/topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -8,7 +8,8 @@ class CardList extends StatelessWidget {
   //final Topic topic;
   CardList({Key key, this.category}) : super(key: key);
 
-  final String category;
+  //final String category;
+  final Topic category;
   final FlutterTts flutterTts = FlutterTts();
 
   Future _speak(String text) async {
@@ -16,7 +17,7 @@ class CardList extends StatelessWidget {
 
     await flutterTts.setLanguage('ko-KR');
     //await flutterTts.setLanguage('en-US');
-    await flutterTts.setPitch(2);
+    await flutterTts.setPitch(1);
     print(await flutterTts.getVoices);
     await flutterTts.speak(text);
   }
@@ -133,7 +134,7 @@ class CardList extends StatelessWidget {
         },
         front: Container(
           decoration: BoxDecoration(
-            //color: Colors.white,
+            color: Colors.white,
             //color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
             //border: Border.all(),
@@ -146,7 +147,7 @@ class CardList extends StatelessWidget {
               Container(
                 //color: Colors.white,
                 child: FittedBox(
-                  child: Text(korTime[id], style: Theme.of(context).textTheme.headline1)
+                  child: Text(category.korWord[id], style: Theme.of(context).textTheme.headline1)
                 ),
               ),
               Container(
@@ -170,7 +171,7 @@ class CardList extends StatelessWidget {
                               splashColor: Colors.purple,
                               onPressed: () {
                                 print('IconButton is pressed');
-                                _speak(korTime[id]);
+                                _speak(category.korWord[id]);
                               }
                            ),
                   )
@@ -189,7 +190,7 @@ class CardList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               FittedBox(
-                child: Text(engTime[id], style: Theme.of(context).textTheme.headline2)
+                child: Text(category.engWord[id], style: Theme.of(context).textTheme.headline2)
               ),
               Text('Click here to flip front',
                   style: Theme.of(context).textTheme.subtitle1),
@@ -204,18 +205,18 @@ class CardList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(category.toString()),
+        title: Text(category.korName),
         elevation: 0.0,
       ),
       body: Container(
         color: Theme.of(context).primaryColor,
         //color: Colors.white30,
         child: Swiper(
-          itemCount: 19,
+          itemCount: category.korWord.length,
           viewportFraction: 0.8,
           scale: 0.8,
           control: SwiperControl(),
-          autoplay: true,
+          autoplay: false,
           //pagination: SwiperPagination(),
           itemBuilder: (BuildContext context, int index) {
             return Stack(
