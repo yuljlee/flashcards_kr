@@ -13,4 +13,12 @@ class Topic {
   List<String> get korWord => _korWord;
   List<String> get engWord => _engWord;
   int get order => _order;
+  
+  set setKorWord(List<String> name) { 
+      this._korWord = name; 
+  }
+
+  set setEngWord(List<String> name) { 
+      this._engWord = name; 
+  }  
 }

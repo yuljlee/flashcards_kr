@@ -36,28 +36,7 @@ class Home extends StatelessWidget {
 
   //   return cards;
   // }
-
-final List<String> korTime = [
-    "일월",
-    "이월",
-    "삼월",
-    "사월",
-    "오월",
-    '유월',
-    '칠월',
-    '팔월',
-    '구월',
-    '시월',
-    '십일월',
-    '십이월',
-    '월요일',
-    '화요일',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',
-  ];
+  
 
   final Topic time = new Topic(1, '시간', 'Time', ["일월",
     "이월",
