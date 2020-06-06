@@ -37,11 +37,10 @@ class Home extends StatelessWidget {
   //   return cards;
   // }
   
-
   final Topic time = new Topic(1, '시간', 'Time', ["일월",
     "이월",
     "삼월",
-    "사월",
+     "사월",
     "오월",
     '유월',
     '칠월',
@@ -76,6 +75,7 @@ class Home extends StatelessWidget {
     'Friday',
     'Saturday',
     'Sunday',], 1);
+
   final Topic number = new Topic(2, '숫자', 'Numbers', [
     '하나',
     '둘',
@@ -97,6 +97,7 @@ class Home extends StatelessWidget {
     'eight',
     'nine',
     'ten',], 2);
+
   final Topic body = new Topic(3, '몸', 'Human Body', ["일월",
     "이월",
     "삼월",
@@ -134,6 +135,7 @@ class Home extends StatelessWidget {
     '금요일',
     '토요일',
     '일요일',], 3);
+
   final Topic family = new Topic(4, '가족', 'Family', ["일월",
     "이월",
     "삼월",
@@ -171,6 +173,7 @@ class Home extends StatelessWidget {
     '금요일',
     '토요일',
     '일요일',], 4);
+
   final Topic animal = new Topic(5, '동물', 'Animals', ["일월",
     "이월",
     "삼월",
@@ -208,6 +211,7 @@ class Home extends StatelessWidget {
     '금요일',
     '토요일',
     '일요일',], 5);
+
   final Topic plant = new Topic(6, '식물', 'Plants', ["일월",
     "이월",
     "삼월",
@@ -245,12 +249,19 @@ class Home extends StatelessWidget {
     '금요일',
     '토요일',
     '일요일',], 6);
-
+  
   Widget _renderCard(context, int id) {
     //List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];
     //List engCategory = ['Time', 'Numbers', 'Human Body', 'Family', 'Animals', 'Plants'];
 
     List<Topic> category = [time, number, body, family, animal, plant];
+    // List<Topic> category;
+    // category.add(time);
+    // category.add(number);
+    // category.add(body);
+    // category.add(family);
+    // category.add(animal);
+    // category.add(plant);
 
     final makeCard = Card(
       elevation: 3.0,

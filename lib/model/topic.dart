@@ -6,7 +6,9 @@ class Topic {
   List<String> _engWord;
   int _order;
 
+  // parametered constructor
   Topic(this._id, this._korCatName, this._engCatName, this._korWord, this._engWord, this._order);
+  
   int get id => _id;
   String get korName => _korCatName;
   String get engName => _engCatName;
