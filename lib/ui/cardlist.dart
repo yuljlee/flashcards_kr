@@ -184,7 +184,7 @@ class CardList extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color(0xFFF06666),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            //border: Border.all(),
+            border: Border.all(),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
