@@ -5,38 +5,6 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   
-  // List<Widget> _createCategory(context, int numCards) {
-  //   int i= 0;
-  //   List category = ['매일', '여행', '학교', '사람들', '여가생활', '회사', '먹거리', '포도', '수박', '참외'];
-  //   List colors = [Colors.blueGrey, Colors.blueAccent, Colors.red, 
-  //     Colors.amber, Colors.pink, Colors.cyan, Colors.brown, Colors.indigo, Colors.deepOrange, Colors.deepPurple];
-  //   List<Widget> cards = List<Widget>();
-  //   int _id = 0;
-  //   while (i < numCards) {
-  //     Card card = Card(
-  //         color: Colors.amberAccent,
-  //         child: InkWell(
-  //           splashColor: Colors.blue.withAlpha(30),
-  //           onTap: () {
-  //             print('You clicked item number $_id');
-  //           },
-  //           child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.center,            
-  //             children: <Widget>[
-  //               Text(i.toString(), style: Theme.of(context).textTheme.subtitle2),
-  //               Text(category[i], style: Theme.of(context).textTheme.headline4),
-  //               Text(category[i], style: Theme.of(context).textTheme.headline6),
-  //               ],
-  //             ),
-  //         ),
-  //       );
-  //     i++;
-  //     cards.add(card);
-  //   }
-
-  //   return cards;
-  // }
-  
   final Topic time = new Topic(1, '시간', 'Time', ["일월",
     "이월",
     "삼월",
@@ -98,43 +66,43 @@ class Home extends StatelessWidget {
     'nine',
     'ten',], 2);
 
-  final Topic body = new Topic(3, '몸', 'Human Body', ["일월",
-    "이월",
-    "삼월",
-    "사월",
-    "오월",
-    '유월',
-    '칠월',
-    '팔월',
-    '구월',
-    '시월',
-    '십일월',
-    '십이월',
-    '월요일',
-    '화요일',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',], ["일월",
-    "이월",
-    "삼월",
-    "사월",
-    "오월",
-    '유월',
-    '칠월',
-    '팔월',
-    '구월',
-    '시월',
-    '십일월',
-    '십이월',
-    '월요일',
-    '화요일',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',], 3);
+  final Topic body = new Topic(3, '몸', 'Human Body', ["머리",
+    "어깨",
+    "무릎",
+    "발",
+    "눈",
+    '코',
+    '입',
+    '귀',
+    '가슴',
+    '배',
+    '팔',
+    '다리',
+    '발목',
+    '손목',
+    '발가락',
+    '손가락',
+    '엉덩이',
+    '머리카락',
+    '눈썹',], ["head",
+    "shoulder",
+    "knee",
+    "foot",
+    "eyes",
+    'nose',
+    'mouth',
+    'ear',
+    'chest',
+    'stomoch',
+    'arm',
+    'leg',
+    'ankle',
+    'wrist',
+    'toes',
+    'finger',
+    'hip',
+    'hair',
+    'eyebrow',], 3);
 
   final Topic family = new Topic(4, '가족', 'Family', ["일월",
     "이월",
