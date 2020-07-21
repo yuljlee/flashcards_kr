@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
           subtitle2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
           bodyText2: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
-          bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),          
+          bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
         ),
       ),
       home: Home(),

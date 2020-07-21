@@ -155,7 +155,7 @@ class CardList extends StatelessWidget {
                 child: Text('뒷면을 보려면 여기를 클릭하세요', style: Theme.of(context).textTheme.subtitle1),
               ),
               Spacer(flex: 1,),
-              Padding(
+              Padding(                
                 padding: EdgeInsets.all(10.0),
                 child: Align(
                   alignment: Alignment.bottomRight,
@@ -170,7 +170,7 @@ class CardList extends StatelessWidget {
                               tooltip: 'Listen!',
                               splashColor: Colors.purple,
                               onPressed: () {
-                                print('IconButton is pressed');
+                                print('IconButton is clicked');
                                 _speak(category.korWord[id]);
                               }
                            ),
