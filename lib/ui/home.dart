@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   
-  final Topic time = new Topic(1, '시간', 'Time', ["일월",
-    "이월",
-    "삼월",
-     "사월",
+  final Topic time = new Topic(1, '시간', 'Time', ['일월',
+    '이월',
+    '삼월',
+    '사월',
     "오월",
     '유월',
     '칠월',
@@ -180,7 +180,7 @@ class Home extends StatelessWidget {
     'kanguru',
     'koala',], 5);
 
-  final Topic plant = new Topic(6, '과일', 'fruit', ['사과',
+  final Topic plant = new Topic(6, '과일', 'Fruit', ['사과',
     '배',
     '딸기',
     '복숭아',
@@ -266,19 +266,19 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: 
         AppBar(
-          leading: FlutterLogo(),
-          title: Text('Choose Topics', style: Theme.of(context).textTheme.bodyText2,),
+          //leading: FlutterLogo(),
+          title: Text(' Choose Topics', style: Theme.of(context).textTheme.bodyText2,),
           elevation: 0.0,
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.settings),
-              tooltip: 'Show Snackbar',
-              onPressed: () {
-                print('settings button pressed.');
-                //scaffoldKey.currentState.showSnackBar(snackBar);
-              },
-            ),
-          ],
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: const Icon(Icons.settings),
+          //     tooltip: 'Show Snackbar',
+          //     onPressed: () {
+          //       print('settings button pressed.');
+          //       //scaffoldKey.currentState.showSnackBar(snackBar);
+          //     },
+          //   ),
+          // ],
         ),
       
       //backgroundColor: const Color(0xFFFFDE03),

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColorDark: const Color(0xffc8b900),
         accentColor: const Color(0xFF1e88e5),
         accentColorBrightness: Brightness.dark,
-        
+
         fontFamily: 'Rubik',
 
         textTheme: TextTheme(

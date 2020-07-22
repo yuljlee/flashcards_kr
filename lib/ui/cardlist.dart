@@ -155,7 +155,7 @@ class CardList extends StatelessWidget {
                 child: Text('뒷면을 보려면 여기를 클릭하세요', style: Theme.of(context).textTheme.subtitle1),
               ),
               Spacer(flex: 1,),
-              Padding(                
+              Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Align(
                   alignment: Alignment.bottomRight,
@@ -184,7 +184,7 @@ class CardList extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color(0xFFF06666),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            border: Border.all(),
+            //border: Border.all(),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
