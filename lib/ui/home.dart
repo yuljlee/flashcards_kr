@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
     'June',
     'July',
     'August',
-    'Septempber',
+    'September',
     'October',
     'November',
     'December',
