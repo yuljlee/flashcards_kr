@@ -208,7 +208,8 @@ class _CardListState extends State<CardList> {
     );
   }
 
-  bool isSwitched = false;  
+  bool isSwitched = false;
+  List<bool> isSelected = [false];
 
   @override
   Widget build(BuildContext context) {
@@ -218,6 +219,16 @@ class _CardListState extends State<CardList> {
         elevation: 0.0,
         //backgroundColor: Color(0xFFF06666),
         actions: <Widget>[
+          Center(child:
+            Text(
+              'autoplay',
+              textScaleFactor: 1.5,
+              style: TextStyle(
+                fontSize: 12.0,
+                color: Colors.black,
+              ),
+            ),
+          ),
           Switch(
             value: isSwitched,
             onChanged: (value) {
@@ -226,15 +237,16 @@ class _CardListState extends State<CardList> {
                  print(isSwitched);
               });
             },
-            activeTrackColor: Colors.lightGreenAccent,
-            activeColor: Colors.green,
+            //activeTrackColor: Colors.lightBlueAccent,
+            //activeTrackColor: Colors.transparent,
+            activeColor: Theme.of(context).accentColor,
           ),
-          FlatButton(
-            textColor: Colors.black,
-            onPressed: () {},
-            child: Text("Autoplay"),
-            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-          ),
+          // FlatButton(
+          //   textColor: Colors.black,
+          //   onPressed: () {},
+          //   child: Text("Autoplay"),
+          //   shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+          // ),
         ],
       ),
       body: Container(

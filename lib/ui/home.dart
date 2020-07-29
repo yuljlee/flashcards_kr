@@ -199,14 +199,7 @@ class Home extends StatelessWidget {
     //List engCategory = ['Time', 'Numbers', 'Human Body', 'Family', 'Animals', 'Plants'];
 
     List<Topic> category = [time, number, body, family, animal, plant];
-    // List<Topic> category;
-    // category.add(time);
-    // category.add(number);
-    // category.add(body);
-    // category.add(family);
-    // category.add(animal);
-    // category.add(plant);
-
+    
     final makeCard = Card(
       elevation: 3.0,
       margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
