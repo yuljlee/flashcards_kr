@@ -138,10 +138,10 @@ class _CardListState extends State<CardList> {
         },
         front: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            //color: Colors.white,
             //color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
-            //border: Border.all(),
+            border: Border.all(width: 2, color: Colors.black38),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           child: Column(
@@ -158,7 +158,7 @@ class _CardListState extends State<CardList> {
               ),
               Container(
                 //color: Colors.orange,
-                child: Text('뒷면을 보려면 여기를 클릭하세요',
+                child: Text('Click here to flip back',
                     style: Theme.of(context).textTheme.subtitle1),
               ),
               Spacer(
@@ -175,14 +175,15 @@ class _CardListState extends State<CardList> {
                       ),
                       child: IconButton(
                           icon: Icon(Icons.volume_up),
-                          iconSize: 40,
+                          iconSize: 50,
                           tooltip: 'Listen!',
-                          splashColor: Colors.purple,
+                          splashColor: Colors.blue,
                           onPressed: () {
                             print('IconButton is clicked');
                             _speak(widget.category.korWord[id]);
                           }),
-                    )),
+                      )
+                    ),
               ),
             ],
           ),
@@ -208,8 +209,7 @@ class _CardListState extends State<CardList> {
     );
   }
 
-  bool isSwitched = false;
-  List<bool> isSelected = [false];
+  bool isSwitched = false; // autoplay on or off
 
   @override
   Widget build(BuildContext context) {
