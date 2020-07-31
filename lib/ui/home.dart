@@ -4,252 +4,303 @@ import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  
-  final Topic time = new Topic(1, '시간', 'Time', ['일월',
-    '이월',
-    '삼월',
-    '사월',
-    "오월",
-    '유월',
-    '칠월',
-    '팔월',
-    '구월',
-    '시월',
-    '십일월',
-    '십이월',
-    '월요일',
-    '화요일',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',], [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',], 1);
+  final Topic time = new Topic(
+      1,
+      '시간',
+      'Time',
+      [
+        '일월',
+        '이월',
+        '삼월',
+        '사월',
+        "오월",
+        '유월',
+        '칠월',
+        '팔월',
+        '구월',
+        '시월',
+        '십일월',
+        '십이월',
+        '월요일',
+        '화요일',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+        '일요일',
+      ],
+      [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      1);
 
-  final Topic number = new Topic(2, '숫자', 'Numbers', [
-    '하나',
-    '둘',
-    '셋',
-    '넷',
-    "다섯",
-    '여섯',
-    '일곱',
-    '여덟',
-    '아홉',
-    '열',], [
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
-    'ten',], 2);
+  final Topic number = new Topic(
+      2,
+      '숫자',
+      'Numbers',
+      [
+        '하나',
+        '둘',
+        '셋',
+        '넷',
+        "다섯",
+        '여섯',
+        '일곱',
+        '여덟',
+        '아홉',
+        '열',
+      ],
+      [
+        'one',
+        'two',
+        'three',
+        'four',
+        'five',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+        'ten',
+      ],
+      2);
 
-  final Topic body = new Topic(3, '몸', 'Human Body', ["머리",
-    "어깨",
-    "무릎",
-    "발",
-    "눈",
-    '코',
-    '입',
-    '귀',
-    '가슴',
-    '배',
-    '팔',
-    '다리',
-    '발목',
-    '손목',
-    '발가락',
-    '손가락',
-    '엉덩이',
-    '머리카락',
-    '눈썹',], ["head",
-    "shoulder",
-    "knee",
-    "foot",
-    "eyes",
-    'nose',
-    'mouth',
-    'ear',
-    'chest',
-    'stomoch',
-    'arm',
-    'leg',
-    'ankle',
-    'wrist',
-    'toes',
-    'finger',
-    'hip',
-    'hair',
-    'eyebrow',], 3);
+  final Topic body = new Topic(
+      3,
+      '몸',
+      'Human Body',
+      [
+        "머리",
+        "어깨",
+        "무릎",
+        "발",
+        "눈",
+        '코',
+        '입',
+        '귀',
+        '가슴',
+        '배',
+        '팔',
+        '다리',
+        '발목',
+        '손목',
+        '발가락',
+        '손가락',
+        '엉덩이',
+        '머리카락',
+        '눈썹',
+      ],
+      [
+        "head",
+        "shoulder",
+        "knee",
+        "foot",
+        "eyes",
+        'nose',
+        'mouth',
+        'ear',
+        'chest',
+        'stomoch',
+        'arm',
+        'leg',
+        'ankle',
+        'wrist',
+        'toes',
+        'finger',
+        'hip',
+        'hair',
+        'eyebrow',
+      ],
+      3);
 
-  final Topic family = new Topic(4, '가족', 'Family', ['엄마',
-    '아빠',
-    '할아버지',
-    '할머니',
-    '언니',
-    '오빠',
-    '남동생',
-    '여동생',
-    '사촌',
-    '조카',
-    '이모',
-    '이모부',
-    '삼촌',
-    '여조카',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',], ['mom',
-    'dad',
-    'grandfather',
-    'gramdmother',
-    'sister',
-    'brother',
-    'younger brother',
-    'younger sister',
-    'cousin',
-    'nephew',
-    'aunt',
-    'uncle',
-    'uncle',
-    'niece',
-    '수요일',
-    '목요일',
-    '금요일',
-    '토요일',
-    '일요일',], 4);
+  final Topic family = new Topic(
+      4,
+      '가족',
+      'Family',
+      [
+        '엄마',
+        '아빠',
+        '할아버지',
+        '할머니',
+        '언니',
+        '오빠',
+        '남동생',
+        '여동생',
+        '사촌',
+        '조카',
+        '이모',
+        '이모부',
+        '삼촌',
+        '여조카',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+        '일요일',
+      ],
+      [
+        'mom',
+        'dad',
+        'grandfather',
+        'gramdmother',
+        'sister',
+        'brother',
+        'younger brother',
+        'younger sister',
+        'cousin',
+        'nephew',
+        'aunt',
+        'uncle',
+        'uncle',
+        'niece',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+        '일요일',
+      ],
+      4);
 
-  final Topic animal = new Topic(5, '동물', 'Animals', ['사자',
-    '호랑이',
-    '고양이',
-    '개',
-    '오리',
-    '닭',
-    '말',
-    '돼지',
-    '독수리',
-    '뱀',
-    '원숭이',
-    '코끼리',
-    '기린',
-    '고래',
-    '돌고래',
-    '상어',
-    '물개',
-    '캥거루',
-    '코알라',], ['lion',
-    'tiger',
-    'cat',
-    'dog',
-    'duck',
-    'hen',
-    'horse',
-    'pig',
-    'eagle',
-    'snake',
-    'monkey',
-    'elephant',
-    'giraffe',
-    'whale',
-    'dolphin',
-    'shark',
-    'seal',
-    'kanguru',
-    'koala',], 5);
+  final Topic animal = new Topic(
+      5,
+      '동물',
+      'Animals',
+      [
+        '사자',
+        '호랑이',
+        '고양이',
+        '개',
+        '오리',
+        '닭',
+        '말',
+        '돼지',
+        '독수리',
+        '뱀',
+        '원숭이',
+        '코끼리',
+        '기린',
+        '고래',
+        '돌고래',
+        '상어',
+        '물개',
+        '캥거루',
+        '코알라',
+      ],
+      [
+        'lion',
+        'tiger',
+        'cat',
+        'dog',
+        'duck',
+        'hen',
+        'horse',
+        'pig',
+        'eagle',
+        'snake',
+        'monkey',
+        'elephant',
+        'giraffe',
+        'whale',
+        'dolphin',
+        'shark',
+        'seal',
+        'kanguru',
+        'koala',
+      ],
+      5);
 
-  final Topic plant = new Topic(6, '과일', 'Fruit', ['사과',
-    '배',
-    '딸기',
-    '복숭아',
-    '바나나',
-    '수박',
-    '참외',], ['apple',
-    'pear',
-    'strawberry',
-    'peach',
-    'banana',
-    'watermelon',
-    'oriental melon',], 6);
-  
+  final Topic plant = new Topic(
+      6,
+      '과일',
+      'Fruit',
+      [
+        '사과',
+        '배',
+        '딸기',
+        '복숭아',
+        '바나나',
+        '수박',
+        '참외',
+      ],
+      [
+        'apple',
+        'pear',
+        'strawberry',
+        'peach',
+        'banana',
+        'watermelon',
+        'oriental melon',
+      ],
+      6);
+
   Widget _renderCard(context, int id) {
     //List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];
     //List engCategory = ['Time', 'Numbers', 'Human Body', 'Family', 'Animals', 'Plants'];
 
     List<Topic> category = [time, number, body, family, animal, plant];
-    // List<Topic> category;
-    // category.add(time);
-    // category.add(number);
-    // category.add(body);
-    // category.add(family);
-    // category.add(animal);
-    // category.add(plant);
 
     final makeCard = Card(
       elevation: 3.0,
       margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       //margin: EdgeInsets.all(20),
       child: GestureDetector(
-              //splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                print('You clicked item number $id');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CardList(category: category[id]),
-                  ),
-                );
-              },
-              child: Container(
-                //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                decoration: BoxDecoration(color: Colors.white30),
-                child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Spacer(),
-                        // Align(
-                        //   alignment: Alignment.bottomLeft,
-                        //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
-                        // ),
-                        //Text(category[id], style: Theme.of(context).textTheme.headline6),
-                        Text(category[id].korName, style: Theme.of(context).textTheme.headline6),
-                        //Divider(),
-                        Container(
-                          padding: EdgeInsets.only(right: 10.0),
-                          alignment: Alignment.bottomRight,
-                          child: Text(category[id].engName, style: Theme.of(context).textTheme.subtitle2),
-                        ),
-                        Spacer(),
-                        Container(
-                          alignment: Alignment.bottomCenter,
-                          height: 10.0,
-                          color: Theme.of(context).accentColor,
-                        )
-                        ],
-                      ),
+        //splashColor: Colors.blue.withAlpha(30),
+        onTap: () {
+          print('You clicked item number $id');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CardList(category: category[id]),
+            ),
+          );
+        },
+        child: Container(
+          //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+          decoration: BoxDecoration(color: Colors.white30),
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Spacer(),
+              // Align(
+              //   alignment: Alignment.bottomLeft,
+              //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
+              // ),
+              //Text(category[id], style: Theme.of(context).textTheme.headline6),
+              Text(category[id].korName,
+                  style: Theme.of(context).textTheme.headline6),
+              //Divider(),
+              Container(
+                padding: EdgeInsets.only(right: 10.0),
+                alignment: Alignment.bottomRight,
+                child: Text(category[id].engName,
+                    style: Theme.of(context).textTheme.subtitle2),
               ),
+              Spacer(),
+              Container(
+                alignment: Alignment.bottomCenter,
+                height: 10.0,
+                color: Theme.of(context).accentColor,
+              )
+            ],
+          ),
+        ),
       ),
     );
 
@@ -262,63 +313,67 @@ class Home extends StatelessWidget {
     Orientation orientation = MediaQuery.of(context).orientation;
     // display 2 rows on portrait
     (orientation == Orientation.portrait) ? _rowCnt = 2 : _rowCnt = 3;
-    
+
     return Scaffold(
-      appBar: 
-        AppBar(
-          //leading: FlutterLogo(),
-          title: Text(' Choose Topics', style: Theme.of(context).textTheme.bodyText2,),
-          elevation: 0.0,
-          // actions: <Widget>[
-          //   IconButton(
-          //     icon: const Icon(Icons.settings),
-          //     tooltip: 'Show Snackbar',
-          //     onPressed: () {
-          //       print('settings button pressed.');
-          //       //scaffoldKey.currentState.showSnackBar(snackBar);
-          //     },
-          //   ),
-          // ],
+      appBar: AppBar(
+        // leading: Image.asset(
+        //     "assets/images/a_dot_ham.jpeg",
+        //   ),
+        title: Text(
+          ' Choose Topics',
+          style: Theme.of(context).textTheme.bodyText2,
         ),
-      
+        elevation: 0.0,
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.settings),
+        //     tooltip: 'Show Snackbar',
+        //     onPressed: () {
+        //       print('settings button pressed.');
+        //       //scaffoldKey.currentState.showSnackBar(snackBar);
+        //     },
+        //   ),
+        // ],
+      ),
+
       //backgroundColor: const Color(0xFFFFDE03),
       backgroundColor: Theme.of(context).primaryColor,
-      
-      body:
-        Container(
-          padding: EdgeInsets.only(top: 20.0),
-          //color: Colors.blue[700],
-          child: GridView.builder(
-            itemCount: 6,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( 
-              crossAxisCount: _rowCnt,
-              crossAxisSpacing: 0,
-              mainAxisSpacing: 0,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return _renderCard(context, index);
-            },
+
+      body: Container(
+        padding: EdgeInsets.only(top: 20.0),
+        //color: Colors.blue[700],
+        child: GridView.builder(
+          itemCount: 6,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: _rowCnt,
+            crossAxisSpacing: 0,
+            mainAxisSpacing: 0,
           ),
+          itemBuilder: (BuildContext context, int index) {
+            return _renderCard(context, index);
+          },
         ),
+      ),
     );
   }
 }
 
 Widget firstRow() {
-      return Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(right: 8.0),
-            child: Icon(Icons.favorite,
-              color: Colors.green,
-            ),
-          ),
-          Text(
-            'BEAMS',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      );
-    }
+  return Row(
+    children: [
+      Padding(
+        padding: EdgeInsets.only(right: 8.0),
+        child: Icon(
+          Icons.favorite,
+          color: Colors.green,
+        ),
+      ),
+      Text(
+        'BEAMS',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+    ],
+  );
+}
