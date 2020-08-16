@@ -149,11 +149,6 @@ class Home extends StatelessWidget {
         '이모부',
         '삼촌',
         '여조카',
-        '수요일',
-        '목요일',
-        '금요일',
-        '토요일',
-        '일요일',
       ],
       [
         'mom',
@@ -170,11 +165,6 @@ class Home extends StatelessWidget {
         'uncle',
         'uncle',
         'niece',
-        '수요일',
-        '목요일',
-        '금요일',
-        '토요일',
-        '일요일',
       ],
       4);
 
