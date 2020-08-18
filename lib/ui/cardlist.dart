@@ -17,12 +17,12 @@ class CardList extends StatefulWidget {
 class _CardListState extends State<CardList> {
   final FlutterTts flutterTts = FlutterTts();
 
-  Future _speak(String text) async {
+  Future _speak(String text, lang) async {
     //print(await flutterTts.getLanguages);
-    await flutterTts.setLanguage('ko-KR');
+    await flutterTts.setLanguage(lang);
     //await flutterTts.setLanguage('en-US');
     await flutterTts.setPitch(1);
-    print(await flutterTts.getVoices);
+    //print(await flutterTts.getVoices);
     await flutterTts.speak(text);
   }
 
@@ -141,7 +141,7 @@ class _CardListState extends State<CardList> {
             //color: Colors.white,
             //color: Color(0xFF006666),
             //color: Theme.of(context).primaryColorLight,
-            border: Border.all(width: 2, color: Colors.black38),
+            border: Border.all(width: 3, color: Colors.black38),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           child: Column(
@@ -180,7 +180,7 @@ class _CardListState extends State<CardList> {
                           splashColor: Colors.blue,
                           onPressed: () {
                             print('IconButton is clicked');
-                            _speak(widget.category.korWord[id]);
+                            _speak(widget.category.korWord[id], 'ko-KR');
                           }),
                       )
                     ),
@@ -190,18 +190,53 @@ class _CardListState extends State<CardList> {
         ),
         back: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFF06666),
+            //color: Colors.white,
+            //color: Color(0xFF006666),
+            //color: Theme.of(context).primaryColorLight,
+            border: Border.all(width: 3, color: Colors.black38),
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            //border: Border.all(),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FittedBox(
-                  child: Text(widget.category.engWord[id],
-                      style: Theme.of(context).textTheme.headline2)),
-              Text('Click here to flip front',
-                  style: Theme.of(context).textTheme.subtitle1),
+              Spacer(
+                flex: 1,
+              ),
+              Container(
+                //color: Colors.white,
+                child: FittedBox(
+                    child: Text(widget.category.engWord[id],
+                        style: Theme.of(context).textTheme.headline1)),
+              ),
+              Container(
+                //color: Colors.orange,
+                child: Text('Click here to flip front',
+                    style: Theme.of(context).textTheme.subtitle1),
+              ),
+              Spacer(
+                flex: 1,
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Ink(
+                      decoration: const ShapeDecoration(
+                        color: Colors.lightGreen,
+                        shape: CircleBorder(),
+                      ),
+                      child: IconButton(
+                          icon: Icon(Icons.volume_up),
+                          iconSize: 50,
+                          tooltip: 'Listen!',
+                          splashColor: Colors.blue,
+                          onPressed: () {
+                            print('IconButton is clicked');
+                            _speak(widget.category.engWord[id], 'en-US');
+                          }),
+                      )
+                    ),
+              ),
             ],
           ),
         ),
