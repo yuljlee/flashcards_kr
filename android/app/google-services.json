@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "709535942462",
+    "firebase_url": "https://k-flashcards.firebaseio.com",
+    "project_id": "k-flashcards",
+    "storage_bucket": "k-flashcards.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709535942462:android:94a814825a7521791d4e6f",
+        "android_client_info": {
+          "package_name": "com.chrislee.flashcards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709535942462-kaoinqtsicdeml2o38b3ip7tbg9tts99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6nZt1r6sW0-c2RXI1FAKVppqyut-Yqvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709535942462-kaoinqtsicdeml2o38b3ip7tbg9tts99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
