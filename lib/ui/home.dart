@@ -1,7 +1,10 @@
 // Main page
+//import 'dart:html';
+
 import 'package:flashcards_kr/model/topic.dart';
 import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatelessWidget {
   final Topic time = new Topic(
@@ -240,12 +243,8 @@ class Home extends StatelessWidget {
       ],
       6);
 
-  Widget _renderCard(context, int id) {
-    //List category = ['시간', '숫자', '몸', '가족', '동물', '식물'];
-    //List engCategory = ['Time', 'Numbers', 'Human Body', 'Family', 'Animals', 'Plants'];
-
-    List<Topic> category = [time, number, body, family, animal, plant];
-
+  Widget _renderCard(context, DocumentSnapshot document) {
+    
     final makeCard = Card(
       elevation: 3.0,
       margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
@@ -253,11 +252,11 @@ class Home extends StatelessWidget {
       child: GestureDetector(
         //splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          print('You clicked item number $id');
+          //print('You clicked item number $id');
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CardList(category: category[id]),
+              builder: (context) => CardList(category: null),
             ),
           );
         },
@@ -273,13 +272,13 @@ class Home extends StatelessWidget {
               //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
               // ),
               //Text(category[id], style: Theme.of(context).textTheme.headline6),
-              Text(category[id].korName,
+              Text(document.get('kor_name'),
                   style: Theme.of(context).textTheme.headline6),
               //Divider(),
               Container(
                 padding: EdgeInsets.only(right: 10.0),
                 alignment: Alignment.bottomRight,
-                child: Text(category[id].engName,
+                child: Text(document.get('eng_name'),
                     style: Theme.of(context).textTheme.subtitle2),
               ),
               Spacer(),
@@ -330,9 +329,26 @@ class Home extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
 
       body: Container(
-        padding: EdgeInsets.only(top: 20.0),
-        //color: Colors.blue[700],
-        child: GridView.builder(
+          padding: EdgeInsets.only(top: 20.0),
+          //color: Colors.blue[700],
+          child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('categories')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) return const Text('Loading...');
+                return GridView.builder(
+                  itemCount: snapshot.data.documents.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: _rowCnt,
+                    crossAxisSpacing: 0,
+                    mainAxisSpacing: 0,
+                  ),
+                  itemBuilder: (BuildContext context, int index) =>
+                      _renderCard(context, snapshot.data.document[index]),
+                );
+              })
+          /* GridView.builder(
           itemCount: 6,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: _rowCnt,
@@ -342,8 +358,8 @@ class Home extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return _renderCard(context, index);
           },
-        ),
-      ),
+        ), */
+          ),
     );
   }
 }

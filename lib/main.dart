@@ -1,12 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flashcards_kr/ui/home.dart';
+// Import the firebase_core plugin
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  // Create the initilization Future outside of `build`:
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+    Widget MyAwesomeApp () {
+        return MaterialApp(
+        title: 'Korean Flashcards',
+        theme: ThemeData(
+          primaryColor: const Color(0xffffeb3b),
+          primaryColorLight: const Color(0xffffff72),
+          primaryColorDark: const Color(0xffc8b900),
+          accentColor: const Color(0xFF1e88e5),
+          accentColorBrightness: Brightness.dark,
+
+          fontFamily: 'Rubik',
+
+          textTheme: TextTheme(
+            headline5: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
+            subtitle2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
+            bodyText2: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
+            bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
+          ),
+        ),
+        home: Home(),
+      );
+    }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Korean Flashcards',
       theme: ThemeData(
@@ -28,6 +62,28 @@ class MyApp extends StatelessWidget {
       ),
       home: Home(),
     );
+
+    /* MaterialApp(
+      title: 'Korean Flashcards',
+      theme: ThemeData(
+        primaryColor: const Color(0xffffeb3b),
+        primaryColorLight: const Color(0xffffff72),
+        primaryColorDark: const Color(0xffc8b900),
+        accentColor: const Color(0xFF1e88e5),
+        accentColorBrightness: Brightness.dark,
+
+        fontFamily: 'Rubik',
+
+        textTheme: TextTheme(
+          headline5: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
+          subtitle2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
+          bodyText2: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
+          bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
+        ),
+      ),
+      home: Home(),
+    ); */
   }
 }
 
