@@ -1,6 +1,3 @@
-// Main page
-//import 'dart:html';
-
 import 'package:flashcards_kr/model/topic.dart';
 import 'package:flashcards_kr/ui/cardlist.dart';
 import 'package:flutter/material.dart';
@@ -244,7 +241,6 @@ class Home extends StatelessWidget {
       6);
 
   Widget _renderCard(context, DocumentSnapshot document) {
-    
     final makeCard = Card(
       elevation: 3.0,
       margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
@@ -252,11 +248,11 @@ class Home extends StatelessWidget {
       child: GestureDetector(
         //splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          //print('You clicked item number $id');
+          //print('You clicked item number $document');
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CardList(category: null),
+              builder: (context) => CardList(document.id),
             ),
           );
         },
@@ -267,19 +263,14 @@ class Home extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Spacer(),
-              // Align(
-              //   alignment: Alignment.bottomLeft,
-              //   child: Text(id.toString(), style: Theme.of(context).textTheme.body1)
-              // ),
-              //Text(category[id], style: Theme.of(context).textTheme.headline6),
               Text(document.get('kor_name'),
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.subtitle2),
               //Divider(),
               Container(
-                padding: EdgeInsets.only(right: 10.0),
-                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.all(10.0),
+                //alignment: Alignment.bottomRight,
                 child: Text(document.get('eng_name'),
-                    style: Theme.of(context).textTheme.subtitle2),
+                    style: Theme.of(context).textTheme.subtitle1),
               ),
               Spacer(),
               Container(
@@ -336,30 +327,20 @@ class Home extends StatelessWidget {
                   .collection('categories')
                   .snapshots(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData) return const Text('Loading...');
+                if (!snapshot.hasData) {
+                  return CircularProgressIndicator();
+                }
                 return GridView.builder(
                   itemCount: snapshot.data.documents.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      _renderCard(context, snapshot.data.documents[index]),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: _rowCnt,
-                    crossAxisSpacing: 0,
-                    mainAxisSpacing: 0,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
                   ),
-                  itemBuilder: (BuildContext context, int index) =>
-                      _renderCard(context, snapshot.data.document[index]),
                 );
-              })
-          /* GridView.builder(
-          itemCount: 6,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: _rowCnt,
-            crossAxisSpacing: 0,
-            mainAxisSpacing: 0,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return _renderCard(context, index);
-          },
-        ), */
-          ),
+              })),
     );
   }
 }

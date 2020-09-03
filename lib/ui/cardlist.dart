@@ -1,14 +1,19 @@
-import 'package:flashcards_kr/model/topic.dart';
+//import 'dart:html';
+
+//import 'package:flashcards_kr/model/topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CardList extends StatefulWidget {
   // Declare a field that holds the Topic.
-  final Topic category;
+  //final Topic category;
   // In the constructor, require a Topic.
-  CardList({Key key, @required this.category}) : super(key: key);
+  //CardList({Key key, @required this.category}) : super(key: key);
+  final doc;
+  CardList(this.doc);
 
   @override
   State<StatefulWidget> createState() => _CardListState();
@@ -125,7 +130,8 @@ class _CardListState extends State<CardList> {
   ];
 
   // show card
-  _renderContent(context, int id) {
+  _renderContent(context, DocumentSnapshot document) {
+    
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 32.0),
@@ -151,10 +157,14 @@ class _CardListState extends State<CardList> {
                 flex: 1,
               ),
               Container(
+                padding: const EdgeInsets.only(right: 16, left: 16),
                 //color: Colors.white,
                 child: FittedBox(
-                    child: Text(widget.category.korWord[id],
-                        style: Theme.of(context).textTheme.headline1)),
+                    child: Text(
+                        document.get('kor_name'), //widget.category.korWord[id],
+                        style: Theme.of(context).textTheme.headline1)
+                    ),
+                //padding: Padding(padding: ,
               ),
               Container(
                 //color: Colors.orange,
@@ -175,15 +185,14 @@ class _CardListState extends State<CardList> {
                       ),
                       child: IconButton(
                           icon: Icon(Icons.volume_up),
-                          iconSize: 50,
+                          iconSize: 40,
                           tooltip: 'Listen!',
                           splashColor: Colors.blue,
                           onPressed: () {
                             print('IconButton is clicked');
-                            _speak(widget.category.korWord[id], 'ko-KR');
+                            _speak(document.get('kor_name'), 'ko-KR');
                           }),
-                      )
-                    ),
+                    )),
               ),
             ],
           ),
@@ -203,16 +212,31 @@ class _CardListState extends State<CardList> {
                 flex: 1,
               ),
               Container(
-                //color: Colors.white,
-                child: FittedBox(
-                    child: Text(widget.category.engWord[id],
-                        style: Theme.of(context).textTheme.headline1)),
-              ),
-              Container(
-                //color: Colors.orange,
-                child: Text('Click here to flip front',
-                    style: Theme.of(context).textTheme.subtitle1),
-              ),
+                  //color: Colors.white,
+                  padding: const EdgeInsets.only(right: 16, left: 16),
+                  child: 
+                  
+                    Column(
+                    children: [
+                      FittedBox(
+                          //fit: BoxFit.scaleDown,
+                          child: Text(
+                            document.get('eng_name'), //widget.category.engWord[id],
+                            style: Theme.of(context).textTheme.headline1,
+                            textAlign: TextAlign.center,
+                          )),
+                      Text(
+                            document.get('eng_description'), //widget.category.engWord[id],
+                            style: Theme.of(context).textTheme.subtitle2,
+                            textAlign: TextAlign.center,
+                          ),
+                    ],
+                  )),
+              // Container(
+              //   //color: Colors.orange,
+              //   child: Text('Click here to flip front',
+              //       style: Theme.of(context).textTheme.bodyText1),
+              // ),
               Spacer(
                 flex: 1,
               ),
@@ -227,15 +251,14 @@ class _CardListState extends State<CardList> {
                       ),
                       child: IconButton(
                           icon: Icon(Icons.volume_up),
-                          iconSize: 50,
+                          iconSize: 40,
                           tooltip: 'Listen!',
                           splashColor: Colors.blue,
                           onPressed: () {
                             print('IconButton is clicked');
-                            _speak(widget.category.engWord[id], 'en-US');
+                            _speak(document.get('eng_name'), 'en-US');
                           }),
-                      )
-                    ),
+                    )),
               ),
             ],
           ),
@@ -250,12 +273,12 @@ class _CardListState extends State<CardList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.category.korName),
+        title: Text(''), //Text(widget.category.korName),
         elevation: 0.0,
         //backgroundColor: Color(0xFFF06666),
         actions: <Widget>[
-          Center(child:
-            Text(
+          Center(
+            child: Text(
               'autoplay',
               textScaleFactor: 1.5,
               style: TextStyle(
@@ -268,8 +291,8 @@ class _CardListState extends State<CardList> {
             value: isSwitched,
             onChanged: (value) {
               setState(() {
-                 isSwitched = value;
-                 print(isSwitched);
+                isSwitched = value;
+                print(isSwitched);
               });
             },
             //activeTrackColor: Colors.lightBlueAccent,
@@ -285,42 +308,57 @@ class _CardListState extends State<CardList> {
         ],
       ),
       body: Container(
-        color: Theme.of(context).primaryColor,
-        //color: Colors.white30,
-        child: Swiper(
-          itemCount: widget.category.korWord.length,
-          viewportFraction: 0.8,
-          scale: 0.8,
-          control: SwiperControl(),
-          autoplay: isSwitched,
-          //autoplayDelay: 5,
-          //pagination: SwiperPagination(),
-          itemBuilder: (BuildContext context, int index) {
-            return Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                //_renderBg(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    //_renderAppBar(context),
-                    Expanded(
-                      flex: 22,
-                      child: _renderContent(context, index),
-                    ),
-                    Expanded(
-                      flex: 0,
-                      child: Container(
-                          //color: Colors.orange,
+          color: Theme.of(context).primaryColor,
+          //color: Colors.white30,
+          child: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('categories')
+                .doc(widget.doc)
+                .collection('words')
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(child: CircularProgressIndicator());
+              }
+
+              return Swiper(
+                itemCount: snapshot
+                    .data.documents.length, //widget.category.korWord.length,
+                viewportFraction: 0.8,
+                scale: 0.8,
+                control: SwiperControl(),
+                autoplay: isSwitched,
+                //autoplayDelay: 5,
+                //pagination: SwiperPagination(),
+                itemBuilder: (BuildContext context, int index) {
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      //_renderBg(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          //_renderAppBar(context),
+                          Expanded(
+                            flex: 22,
+                            child: _renderContent(
+                                context, snapshot.data.documents[index]),
+                            //Text(snapshot.data.documents[index].get('kor_name')),
                           ),
-                    ),
-                  ],
-                )
-              ],
-            );
-          },
-        ),
-      ),
+                          Expanded(
+                            flex: 0,
+                            child: Container(
+                                //color: Colors.orange,
+                                ),
+                          ),
+                        ],
+                      )
+                    ],
+                  );
+                },
+              );
+            },
+          )),
     );
   }
 }
