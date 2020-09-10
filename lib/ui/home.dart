@@ -322,10 +322,14 @@ class Home extends StatelessWidget {
       body: Container(
           padding: EdgeInsets.only(top: 20.0),
           //color: Colors.blue[700],
-          child: StreamBuilder(
+          child: StreamBuilder (
               stream: FirebaseFirestore.instance
                   .collection('categories')
+                  
+                  //.where('id', isLessThan: 11)
+                  .orderBy('order')                  
                   .snapshots(),
+                  //.listen( (data) => print('grower ${data.docs[0]}')),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return CircularProgressIndicator();
