@@ -315,6 +315,7 @@ class _CardListState extends State<CardList> {
                 .collection('categories')
                 .doc(widget.doc)
                 .collection('words')
+                .orderBy('order')
                 .snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
@@ -324,9 +325,11 @@ class _CardListState extends State<CardList> {
               return Swiper(
                 itemCount: snapshot
                     .data.documents.length, //widget.category.korWord.length,
-                viewportFraction: 0.8,
+                viewportFraction: 0.85,
                 scale: 0.8,
-                control: SwiperControl(),
+                control: SwiperControl(
+                  color: Colors.black38,
+                ),
                 autoplay: isSwitched,
                 //autoplayDelay: 5,
                 //pagination: SwiperPagination(),
