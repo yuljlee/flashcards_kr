@@ -258,19 +258,23 @@ class Home extends StatelessWidget {
         },
         child: Container(
           //decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+          padding: const EdgeInsets.only(right: 16, left: 16),
           decoration: BoxDecoration(color: Colors.white30),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
               Spacer(),
-              Text(document.get('kor_name'),
-                  style: Theme.of(context).textTheme.subtitle2),
-              //Divider(),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                //alignment: Alignment.bottomRight,
-                child: Text(document.get('eng_name'),
-                    style: Theme.of(context).textTheme.subtitle1),
+              FittedBox(
+                  //fit: BoxFit.scaleDown,
+                  child: Text(
+                document.get('kor_name'), //widget.category.engWord[id],
+                style: Theme.of(context).textTheme.subtitle2,
+                textAlign: TextAlign.center,
+              )), //Divider(),
+              Text(
+                document.get('eng_name'),
+                style: Theme.of(context).textTheme.subtitle1,
+                textAlign: TextAlign.center,
               ),
               Spacer(),
               Container(
@@ -315,24 +319,20 @@ class Home extends StatelessWidget {
         //   ),
         // ],
       ),
-
-      //backgroundColor: const Color(0xFFFFDE03),
       backgroundColor: Theme.of(context).primaryColor,
-
       body: Container(
           padding: EdgeInsets.only(top: 20.0),
           //color: Colors.blue[700],
-          child: StreamBuilder (
+          child: StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('categories')
-                  
-                  //.where('id', isLessThan: 11)
-                  .orderBy('order')                  
+                  .where('active', isEqualTo: 1)
+                  //.orderBy('order')
                   .snapshots(),
-                  //.listen( (data) => print('grower ${data.docs[0]}')),
+              //.listen( (data) => print('grower ${data.docs[0]}')),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
-                  return CircularProgressIndicator();
+                  return Center(child: CircularProgressIndicator());
                 }
                 return GridView.builder(
                   itemCount: snapshot.data.documents.length,
