@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Korean Flashcards',
       theme: ThemeData(
         primaryColor: const Color(0xffffeb3b),
@@ -22,16 +22,26 @@ class MyApp extends StatelessWidget {
         primaryColorDark: const Color(0xffc8b900),
         accentColor: const Color(0xFF1e88e5),
         accentColorBrightness: Brightness.dark,
-
         fontFamily: 'Rubik',
-
         textTheme: TextTheme(
           headline5: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black54),
-          subtitle1: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: Colors.black54),
-          subtitle2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400, color: Colors.black54),
+          headline6: TextStyle(
+              fontSize: 28.0,
+              fontWeight: FontWeight.w700,
+              color: Colors.black54),
+          subtitle1: TextStyle(
+              fontSize: 13.0,
+              fontWeight: FontWeight.w400,
+              color: Colors.black54),
+          subtitle2: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.w400,
+              color: Colors.black54),
           bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
-          bodyText2: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w500, color: const Color(0xFF0336FF)),
+          bodyText2: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.w500,
+              color: const Color(0xFF0336FF)),
         ),
       ),
       home: Home(),
@@ -60,8 +70,6 @@ class MyApp extends StatelessWidget {
     ); */
   }
 }
-
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
