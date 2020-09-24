@@ -131,7 +131,6 @@ class _CardListState extends State<CardList> {
 
   // show card
   _renderContent(context, DocumentSnapshot document) {
-    
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 32.0),
@@ -162,8 +161,7 @@ class _CardListState extends State<CardList> {
                 child: FittedBox(
                     child: Text(
                         document.get('kor_name'), //widget.category.korWord[id],
-                        style: Theme.of(context).textTheme.headline1)
-                    ),
+                        style: Theme.of(context).textTheme.headline1)),
                 //padding: Padding(padding: ,
               ),
               Container(
@@ -214,23 +212,21 @@ class _CardListState extends State<CardList> {
               Container(
                   //color: Colors.white,
                   padding: const EdgeInsets.only(right: 16, left: 16),
-                  child: 
-                  
-                    Column(
+                  child: Column(
                     children: [
                       FittedBox(
                           //fit: BoxFit.scaleDown,
                           child: Text(
-                            document.get('eng_name'), //widget.category.engWord[id],
-                            style: Theme.of(context).textTheme.headline1,
-                            textAlign: TextAlign.center,
-                          )
-                      ),
+                        document.get('eng_name'), //widget.category.engWord[id],
+                        style: Theme.of(context).textTheme.headline1,
+                        textAlign: TextAlign.center,
+                      )),
                       Text(
-                            document.get('eng_description'), //widget.category.engWord[id],
-                            style: Theme.of(context).textTheme.subtitle2,
-                            textAlign: TextAlign.center,
-                          ),
+                        document.get(
+                            'eng_description'), //widget.category.engWord[id],
+                        style: Theme.of(context).textTheme.subtitle2,
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   )),
               // Container(
@@ -308,61 +304,64 @@ class _CardListState extends State<CardList> {
           // ),
         ],
       ),
-      body: Container(
-          color: Theme.of(context).primaryColor,
-          //color: Colors.white30,
-          child: StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection('categories')
-                .doc(widget.doc)
-                .collection('words')
-                .orderBy('order')
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return Center(child: CircularProgressIndicator());
-              }
+      backgroundColor: Theme.of(context).primaryColor,
+      body: SafeArea(
+              child: Container(
+            color: Theme.of(context).primaryColor,
+            //color: Colors.white30,
+            child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('categories')
+                  .doc(widget.doc)
+                  .collection('words')
+                  .orderBy('order')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(child: CircularProgressIndicator());
+                }
 
-              return Swiper(
-                itemCount: snapshot
-                    .data.documents.length, //widget.category.korWord.length,
-                viewportFraction: 0.85,
-                scale: 0.8,
-                control: SwiperControl(
-                  color: Colors.black38,
-                ),
-                autoplay: isSwitched,
-                //autoplayDelay: 5,
-                //pagination: SwiperPagination(),
-                itemBuilder: (BuildContext context, int index) {
-                  return Stack(
-                    fit: StackFit.expand,
-                    children: <Widget>[
-                      //_renderBg(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          //_renderAppBar(context),
-                          Expanded(
-                            flex: 22,
-                            child: _renderContent(
-                                context, snapshot.data.documents[index]),
-                            //Text(snapshot.data.documents[index].get('kor_name')),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: Container(
-                                //color: Colors.orange,
-                                ),
-                          ),
-                        ],
-                      )
-                    ],
-                  );
-                },
-              );
-            },
-          )),
+                return Swiper(
+                  itemCount: snapshot
+                      .data.documents.length, //widget.category.korWord.length,
+                  viewportFraction: 0.85,
+                  scale: 0.8,
+                  control: SwiperControl(
+                    color: Colors.black38,
+                  ),
+                  autoplay: isSwitched,
+                  //autoplayDelay: 5,
+                  //pagination: SwiperPagination(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Stack(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        //_renderBg(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            //_renderAppBar(context),
+                            Expanded(
+                              flex: 22,
+                              child: _renderContent(
+                                  context, snapshot.data.documents[index]),
+                              //Text(snapshot.data.documents[index].get('kor_name')),
+                            ),
+                            Expanded(
+                              flex: 0,
+                              child: Container(
+                                  //color: Colors.orange,
+                                  ),
+                            ),
+                          ],
+                        )
+                      ],
+                    );
+                  },
+                );
+              },
+            )),
+      ),
     );
   }
 }

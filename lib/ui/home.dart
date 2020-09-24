@@ -320,31 +320,33 @@ class Home extends StatelessWidget {
         // ],
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Container(
-          padding: EdgeInsets.only(top: 20.0),
-          //color: Colors.blue[700],
-          child: StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('categories')
-                  .where('active', isEqualTo: 1)
-                  //.orderBy('order')
-                  .snapshots(),
-              //.listen( (data) => print('grower ${data.docs[0]}')),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return Center(child: CircularProgressIndicator());
-                }
-                return GridView.builder(
-                  itemCount: snapshot.data.documents.length,
-                  itemBuilder: (BuildContext context, int index) =>
-                      _renderCard(context, snapshot.data.documents[index]),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: _rowCnt,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                );
-              })),
+      body: SafeArea(
+        child: Container(
+            padding: EdgeInsets.only(top: 20.0),
+            //color: Colors.blue[700],
+            child: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('categories')
+                    .where('active', isEqualTo: 1)
+                    //.orderBy('order')
+                    .snapshots(),
+                //.listen( (data) => print('grower ${data.docs[0]}')),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  return GridView.builder(
+                    itemCount: snapshot.data.documents.length,
+                    itemBuilder: (BuildContext context, int index) =>
+                        _renderCard(context, snapshot.data.documents[index]),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: _rowCnt,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                  );
+                })),
+      ),
     );
   }
 }
