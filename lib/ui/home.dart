@@ -294,10 +294,23 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int _rowCnt = 0;
-    Orientation orientation = MediaQuery.of(context).orientation;
-    // display 2 rows on portrait
-    (orientation == Orientation.portrait) ? _rowCnt = 2 : _rowCnt = 3;
+    String getDeviceType() {
+      final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+      return data.size.shortestSide < 600 ? 'phone' : 'tablet';
+    }
 
+    var device = getDeviceType();
+    if (device == "phone") {
+      Orientation orientation = MediaQuery.of(context).orientation;
+      // display 2 rows on portrait
+      (orientation == Orientation.portrait) ? _rowCnt = 2 : _rowCnt = 3;
+    }
+    else {
+      Orientation orientation = MediaQuery.of(context).orientation;
+      // display 3 rows on portrait tablet
+      (orientation == Orientation.portrait) ? _rowCnt = 3 : _rowCnt = 4;
+    }
+    
     return Scaffold(
       appBar: AppBar(
         // leading: Image.asset(
